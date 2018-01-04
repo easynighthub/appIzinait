@@ -5,13 +5,18 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+    
+  <ion-card *ngFor='let task of tasks | async'  (click)="goDetalle($event, task)">
+    <img src="{{task.image}}" style="max-height: 150px">
+    <ion-card-content>
+      <ion-card-title>
+       {{task.name}}
+        </ion-card-title>
+      <p>
+          {{task.date | date:"EEEE dd', 'MMMM " }}
+     {{task.eventDetails}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

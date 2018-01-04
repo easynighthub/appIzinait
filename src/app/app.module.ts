@@ -7,9 +7,27 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+
+
+import { Facebook ,FacebookLoginResponse } from '@ionic-native/facebook';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyAN4CNEsxW_EZ5fEQZIi5M2T7DMcpwYa-Y",
+  authDomain: "easynight.firebaseapp.com",
+  databaseURL: "https://easynight.firebaseio.com",
+  projectId: "project-8746388695669481444",
+  storageBucket: "project-8746388695669481444.appspot.com",
+  messagingSenderId: "1041818414581"
+};
 
 @NgModule({
   declarations: [
@@ -17,11 +35,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginPage,
+    
+    
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,12 +53,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    AngularFireDatabase,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Facebook 
   ]
 })
 export class AppModule {}
