@@ -33,7 +33,7 @@ export class DetallePage {
     this.selectedItem = navParams.get('item');
     console.log(this.selectedItem);
 
-    this.eventSerRef = this.database.list('eventServices');
+    this.eventSerRef = this.database.list('eventServices/'+this.selectedItem.id);
     this.eventSer = this.eventSerRef.snapshotChanges()
     .map(changes => {
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));

@@ -34,10 +34,27 @@
        llamar club</p>
     <br>
 
+
+
     
 
 
 </div>
+
+
+    
+<ion-card *ngFor='let detalle of eventSer | async'  >
+  <ion-card-content>
+    <ion-card-title>
+     {{detalle.tipo}}
+     </ion-card-title>
+     <p>
+       ${{detalle.precio}}, {{detalle.fechaFin | date:"EEEE dd', 'MMMM " }}, {{detalle.desc}}
+  </p>
+     </ion-card-content>
+
+   
+</ion-card>
  <!--{{selectedItem | json}} -->
 
 
