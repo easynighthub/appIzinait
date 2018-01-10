@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>{{selectedItem.name}}</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content >
+        <img
+        style="max-height: 450px;
+         transform: perspective(1350px);
+         border-radius: 5px;
+         box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+     display: block;
+     width: 100% !important;"
+        class="height-auto full-width"
+   
+        src="{{selectedItem.image}}">
+
+        
+    <div class=" date111 mdl-color-text--white mdl-cell "
+    style="color: rgb(0, 0, 0); margin-top: 0px;;">
+
+
+   <font size="2" class="nombreEvento "> {{selectedItem.date | date : 'fullDate'}} </font>
+   <br>
+   <!-- <i class="material-icons mdl-color-text--grey" style="vertical-align: middle;">alarm</i> -->
+   <font size="2" class="nombreEvento "> {{selectedItem.fromHour | date : 'shortTime'}} A {{selectedItem.toHour | date :
+       'shortTime'}} </font>
+
+       <p style="font-size: 20px;" class="teststyle"><i class="material-icons testico">location_on</i>
+       llamar club</p>
+    <br>
+
+    
+
+
+</div>
+ <!--{{selectedItem | json}} -->
+
+
+  </ion-content>

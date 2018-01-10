@@ -6,6 +6,8 @@ import { Observable } from 'rxjs/Observable';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 
+import { DetallePage } from '../detalle/detalle';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -23,6 +25,14 @@ export class HomePage {
     this.tasksRef = this.database.list('events');
     this.tasks = this.tasksRef.snapshotChanges().map(changes => {
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+    });
+  }
+
+  goDetalle(event, item) {
+    // That's right, we're pushing to ourselves!
+    
+    this.navCtrl.push(DetallePage, {
+      item: item
     });
   }
 
