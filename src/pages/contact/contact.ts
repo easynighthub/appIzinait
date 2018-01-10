@@ -23,12 +23,7 @@ export class ContactPage {
 
   signOut() {
     this.afAuth.auth.signOut();
-    
-    this.navCtrl.push(TabsPage,{
-
-    })
-    this.navCtrl.pop();
-    this.navCtrl.push(LoginPage, {
+    this.navCtrl.setRoot(LoginPage, {
      
                    
     });
