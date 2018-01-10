@@ -19,7 +19,6 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'login.html'
 })
 export class LoginPage {
-
   constructor(
     public navCtrl: NavController,
     public database: AngularFireDatabase,
@@ -30,7 +29,7 @@ export class LoginPage {
 
         afAuth.authState.subscribe(user => {
             if (!user) {
-             
+             console.log(user);
               return;
             }else{
                 this.navCtrl.setRoot(TabsPage, {
